@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Cloud — Hichem Gouia</title>
+  <meta name="description" content="Hichem Gouia · Ingénieur Cloud & DevOps · 6 certifications AWS (dont Solutions Architect Pro), Azure, GCP, Terraform · 10 ans d'expérience industrie. Ouvert aux opportunités." />
+  <meta property="og:title" content="Portfolio Cloud — Hichem Gouia" />
+  <meta property="og:description" content="Ingénieur Cloud · 6× AWS, Azure, GCP, Terraform · Exp. Siemens (intégration AWS), Ampere. Projets IaC, serverless, CI/CD." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fafafa;
+      --bg-card: #f0f0f0;
+      --border: #e5e5e5;
+      --text: #0a0a0a;
+      --muted: #525252;
+      --accent: #b91c1c;
+      --accent-soft: rgba(185, 28, 28, 0.12);
+      --highlight: #0a0a0a;
+      --bracket: #737373;
+      --num: #737373;
+      --font: 'Syne', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .nav-dots {
+      position: fixed;
+      right: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .nav-dots a {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--num);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-dots a:hover,
+    .nav-dots a.active {
+      background: var(--accent);
+      transform: scale(1.2);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 10%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--bracket);
+      margin-bottom: 8px;
+    }
+    .section-label span { color: var(--bracket); }
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      padding: 0;
+      max-width: none;
+      margin: 0;
+      justify-content: stretch;
+      display: grid;
+      grid-template-columns: minmax(0, 42%) 1fr;
+      gap: 24px;
+      align-items: stretch;
+      background: var(--bg);
+    }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+      .hero-photo-wrap { min-height: 50vh; max-height: 55vh; }
+      .hero-content { padding: 48px 24px 32px; }
+    }
+    .hero-content {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 24px 10% 24px 0;
+    }
+    .hero-photo-wrap {
+      display: flex;
+      justify-content: flex-end;
+      align-items: stretch;
+      padding: 0;
+      background: var(--bg);
+    }
+    .hero-photo-frame {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+    }
+    .hero-photo {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.4s ease;
+      animation: heroPhotoFade 0.8s ease-out;
+    }
+    @keyframes heroPhotoFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .hero-photo-wrap:hover .hero-photo {
+      transform: scale(1.02);
+    }
+    .hero-nav {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--num);
+      margin-bottom: 40px;
+    }
+    .hero-name {
+      font-size: clamp(3rem, 12vw, 8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+    .hero-name .accent { color: var(--accent); }
+    .hero-name .line2 { display: block; padding-left: 0.08em; }
+    .hero-tagline {
+      font-size: clamp(0.85rem, 1.8vw, 1rem);
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+    .hero-meta {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--num);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .hero-actions .btn {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .hero-actions .btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .hero-actions .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .hero-actions .btn-primary:hover {
+      filter: brightness(1.1);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ========== ABOUT ========== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-top: 32px;
+    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 540px;
+    }
+    .about-text strong { color: var(--text); }
+    .about-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .about-links a {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .about-links a:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+    .biodata-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 600px) { .biodata-cards { grid-template-columns: 1fr; } }
+    .biodata-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+    }
+    .biodata-card .label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--num);
+      margin-bottom: 4px;
+    }
+    .biodata-card .value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ========== CERTIFICATIONS ========== */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .cert-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .cert-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent);
+    }
+    .cert-card .provider {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--num);
+      margin-bottom: 4px;
+    }
+    .cert-card .cert-badge {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .cert-card .name { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+    .cert-card .meta { font-size: 0.8rem; color: var(--muted); }
+
+    /* ========== EXPERIENCE ========== */
+    .exp-list { margin-top: 32px; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 24px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: 0; }
+    @media (max-width: 640px) { .exp-item { grid-template-columns: 1fr; gap: 12px; } }
+    .exp-num {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--num);
+    }
+    .exp-company { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+    .exp-location { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+    .exp-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--num); margin-bottom: 12px; }
+    .exp-role { font-size: 0.9rem; color: var(--accent); margin-bottom: 12px; }
+    .exp-impact { list-style: none; }
+    .exp-impact li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      padding-left: 16px;
+      position: relative;
+    }
+    .exp-impact li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--muted);
+    }
+
+    /* ========== PROJECTS ========== */
+    .project-list { margin-top: 32px; }
+    .project-item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 24px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .project-item:last-child { border-bottom: 0; }
+    @media (max-width: 640px) { .project-item { grid-template-columns: 1fr; } }
+    .project-num {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--num);
+    }
+    .project-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+    .project-subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+    .project-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--num); margin-bottom: 12px; }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .project-tech span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--muted);
+    }
+    .project-desc { font-size: 0.95rem; color: var(--muted); margin-bottom: 12px; max-width: 640px; }
+    .project-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .project-link:hover { color: var(--accent); gap: 10px; }
+
+    /* ========== SKILLS ========== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .skills-cat .name {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--num);
+      margin-bottom: 12px;
+    }
+    .skills-cat .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skills-cat .tags span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .skills-cat .tags span::after { content: ' · '; color: var(--bracket); }
+    .skills-cat .tags span:last-child::after { content: ''; }
+    .education-list { margin-top: 40px; }
+    .education-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .education-item:last-child { border-bottom: 0; }
+    .education-date { font-family: var(--font-mono); font-size: 0.8rem; color: var(--num); margin-bottom: 4px; }
+    .education-school { font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+    .education-desc { font-size: 0.9rem; color: var(--muted); }
+
+    /* ========== RESUME ========== */
+    .resume-card {
+      margin-top: 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .resume-card { grid-template-columns: 1fr; } }
+    .resume-preview .doc-title { font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 8px; }
+    .resume-preview .doc-meta { font-size: 0.8rem; color: var(--num); margin-bottom: 16px; }
+    .resume-preview ul { list-style: none; }
+    .resume-preview li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      padding-left: 12px;
+      position: relative;
+    }
+    .resume-preview li::before { content: '▸'; position: absolute; left: 0; color: var(--muted); }
+    .resume-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .resume-cta:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+    /* ========== CONTACT ========== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 32px;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-text { font-size: 1rem; color: var(--muted); max-width: 400px; }
+    .contact-details { display: flex; flex-direction: column; gap: 16px; }
+    .contact-details .label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--num);
+      margin-bottom: 4px;
+    }
+    .contact-details a,
+    .contact-details span { font-size: 1rem; color: var(--text); }
+    .contact-details a:hover { color: var(--accent); }
+    .contact-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .contact-social a {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .contact-social a:hover { border-color: var(--accent); background: var(--accent-soft); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      padding: 40px 10%;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer .name { font-weight: 600; color: var(--text); }
+
+    @media (max-width: 768px) {
+      .nav-dots { right: 12px; }
+      .nav-dots a { width: 6px; height: 6px; }
+    }
+    @media (max-width: 480px) {
+      .nav-dots { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-dots" aria-hidden="true">
+    <a href="#hero" title="Accueil"></a>
+    <a href="#about" title="À propos"></a>
+    <a href="#certifications" title="Certifications"></a>
+    <a href="#projects" title="Projets"></a>
+    <a href="#skills" title="Compétences"></a>
+    <a href="#resume" title="CV"></a>
+    <a href="#contact" title="Contact"></a>
+  </nav>
+
+  <section id="hero" class="hero">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="photo.png" alt="Hichem Gouia" class="hero-photo" />
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-nav">01 / 08</div>
+      <h1 class="hero-name">
+        Hichem<br class="line2" /><span class="accent">Gouia</span>
+      </h1>
+      <p class="hero-tagline">
+        CLOUD · AWS · TERRAFORM · DEVOPS · INFRASTRUCTURE AS CODE
+      </p>
+      <p class="hero-meta">
+        6× AWS (dont Solutions Architect – Professional) · Azure · GCP · Terraform · 10 ans d’expérience industrie
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+        <a href="#contact" class="btn">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="section-label"><span>[</span> BIODATA <span>]</span></p>
+    <h2 class="section-title">À propos</h2>
+    <div class="about-grid">
+      <div>
+        <p class="about-text">
+          Ingénieur avec <strong>10 ans d’expérience</strong> dans des environnements industriels critiques (automobile &amp; ferroviaire) au sein de Valeo, Renault, Siemens et Ampere, j’ai développé une solide expertise en validation, intégration système et assurance qualité. Fort de cette rigueur, j’ai élargi mon champ vers le <strong>cloud</strong> et obtenu <strong>6 certifications AWS</strong> (dont Solutions Architect – Professional), ainsi que Microsoft Azure, Google Cloud et Terraform. Reconnu pour ma capacité d’apprentissage rapide et ma vision architecturale, je souhaite contribuer à des projets cloud en migration, sécurité et Infrastructure as Code.
+        </p>
+        <div class="about-links">
+          <a href="https://github.com/hichemgouia" target="_blank" rel="noopener">GITHUB</a>
+          <a href="https://www.linkedin.com/in/hichem-gouia-960188b2/" target="_blank" rel="noopener">LINKEDIN</a>
+        </div>
+      </div>
+      <div class="biodata-cards">
+        <div class="biodata-card">
+          <div class="label">Profil</div>
+          <div class="value">Ingénieur infrastructure cloud AWS</div>
+        </div>
+        <div class="biodata-card">
+          <div class="label">Certifications</div>
+          <div class="value">6 AWS · Azure · GCP · Terraform</div>
+        </div>
+        <div class="biodata-card">
+          <div class="label">Localisation</div>
+          <div class="value">Saint Cyr L’école (78), France</div>
+        </div>
+        <div class="biodata-card">
+          <div class="label">Statut</div>
+          <div class="value">Ouvert aux opportunités</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <p class="section-label"><span>[</span> CERTIFICATIONS <span>]</span></p>
+    <h2 class="section-title">Certifications Cloud & DevOps</h2>
+    <p class="section-description" style="color: var(--muted); font-size: 0.95rem; max-width: 640px; margin-bottom: 24px;">
+      Socle multi-cloud et infrastructure as code, appliqué dans des projets concrets.
+    </p>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <img class="cert-badge" src="https://images.credly.com/size/120x120/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png" alt="AWS Solutions Architect Professional" loading="lazy" onerror="this.style.display='none'" />
+        <div class="provider">Amazon Web Services</div>
+        <div class="name">Solutions Architect – Professional</div>
+        <div class="meta">AWS</div>
+      </div>
+      <div class="cert-card">
+        <a href="https://www.credly.com/badges/c0b2edc7-ba03-48e3-a3d3-a2e063d3847b/public_url" target="_blank" rel="noopener" title="Voir le badge Credly">
+          <img class="cert-badge" src="badges/aws-solutions-architect-associate.png" alt="AWS Certified Solutions Architect – Associate" loading="lazy" />
+        </a>
+        <div class="provider">Amazon Web Services</div>
+        <div class="name">Solutions Architect – Associate</div>
+        <div class="meta">AWS</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="badges/aws-sysops-administrator-associate.png" alt="AWS Certified SysOps Administrator – Associate" loading="lazy" />
+        <div class="provider">Amazon Web Services</div>
+        <div class="name">SysOps Administrator – Associate</div>
+        <div class="meta">AWS</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="badges/aws-developer-associate.png" alt="AWS Certified Developer – Associate" loading="lazy" />
+        <div class="provider">Amazon Web Services</div>
+        <div class="name">Developer – Associate</div>
+        <div class="meta">AWS</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="badges/aws-cloud-ai-practitioner.png" alt="AWS Certified AI Practitioner" loading="lazy" />
+        <div class="provider">Amazon Web Services</div>
+        <div class="name">Cloud AI Practitioner</div>
+        <div class="meta">AWS</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="https://images.credly.com/size/120x120/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Cloud Practitioner" loading="lazy" onerror="this.style.display='none'" />
+        <div class="provider">Amazon Web Services</div>
+        <div class="name">Cloud Practitioner</div>
+        <div class="meta">AWS</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="badges/terraform-associate.png" alt="HashiCorp Certified Terraform Associate" loading="lazy" />
+        <div class="provider">HashiCorp</div>
+        <div class="name">Terraform Associate</div>
+        <div class="meta">HashiCorp</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="https://images.credly.com/size/120x120/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png" alt="Microsoft Azure Fundamentals" loading="lazy" onerror="this.style.display='none'" />
+        <div class="provider">Microsoft</div>
+        <div class="name">Azure Fundamentals (AZ-900)</div>
+        <div class="meta">Microsoft</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="badges/google-associate-cloud-engineer.png" alt="Google Cloud Certified Associate Cloud Engineer" loading="lazy" />
+        <div class="provider">Google Cloud</div>
+        <div class="name">Associate Cloud Engineer</div>
+        <div class="meta">Google</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="badges/lpi-linux-essentials.png" alt="LPI Linux Essentials" loading="lazy" />
+        <div class="provider">LPI</div>
+        <div class="name">Linux Essentials</div>
+        <div class="meta">LPI</div>
+      </div>
+      <div class="cert-card">
+        <img class="cert-badge" src="badges/kubernetes-cka.png" alt="Certified Kubernetes Administrator (CKA)" loading="lazy" />
+        <div class="provider">Udemy</div>
+        <div class="name">Certified Kubernetes Administrator (CKA)</div>
+        <div class="meta">Pratique</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="section-label"><span>[</span> SELECTED WORK <span>]</span></p>
+    <h2 class="section-title">Projets</h2>
+    <div class="project-list">
+      <article class="project-item">
+        <span class="project-num">01</span>
+        <div>
+          <h3 class="project-title">Site e-commerce sur AWS avec Terraform</h3>
+          <div class="project-subtitle">VPC · ALB · ASG · RDS · Route 53 · SNS</div>
+          <div class="project-date">Projet perso</div>
+          <div class="project-tech">
+            <span>AWS</span><span>Terraform</span><span>EC2</span><span>ALB</span><span>ASG</span><span>RDS</span><span>Route 53</span><span>SNS</span>
+          </div>
+          <p class="project-desc">
+            VPC multi-AZ, NAT Gateway, Security Groups, Application Load Balancer, Auto Scaling Group, base MySQL RDS. Infrastructure as Code complète avec Terraform.
+          </p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+        </div>
+      </article>
+      <article class="project-item">
+        <span class="project-num">02</span>
+        <div>
+          <h3 class="project-title">Migration vers Infrastructure as Code (Terraform)</h3>
+          <div class="project-subtitle">Import state · Modules · Backend S3 + DynamoDB</div>
+          <div class="project-date">Projet perso</div>
+          <div class="project-tech">
+            <span>AWS</span><span>Terraform</span><span>VPC</span><span>EC2</span><span>RDS</span><span>S3</span><span>DynamoDB</span>
+          </div>
+          <p class="project-desc">
+            Migration d’une infra AWS manuelle vers l’IaC : import des ressources, refactoring en modules (network, compute, database, storage), backend distant S3 + DynamoDB, bonnes pratiques.
+          </p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+        </div>
+      </article>
+      <article class="project-item">
+        <span class="project-num">03</span>
+        <div>
+          <h3 class="project-title">Pipeline CI/CD 2048 avec CodePipeline, ECS & ECR</h3>
+          <div class="project-subtitle">Docker · CodeBuild · ECS Fargate</div>
+          <div class="project-date">Projet perso</div>
+          <div class="project-tech">
+            <span>AWS</span><span>CodePipeline</span><span>ECS</span><span>ECR</span><span>CodeBuild</span><span>Fargate</span>
+          </div>
+          <p class="project-desc">
+            Pipeline de livraison continue : build et déploiement automatique d’une app conteneurisée (Docker) sur Amazon ECS avec Fargate.
+          </p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+        </div>
+      </article>
+      <article class="project-item">
+        <span class="project-num">04</span>
+        <div>
+          <h3 class="project-title">Site météo multi-cloud & Disaster Recovery (Terraform)</h3>
+          <div class="project-subtitle">AWS S3 · CloudFront · Azure Blob · Route 53 Failover</div>
+          <div class="project-date">Projet perso</div>
+          <div class="project-tech">
+            <span>AWS</span><span>Azure</span><span>Terraform</span><span>S3</span><span>CloudFront</span><span>Route 53</span>
+          </div>
+          <p class="project-desc">
+            Application météo déployée sur AWS et Azure ; frontend sur S3 + CloudFront et Azure Blob ; DNS Failover Route 53 pour la continuité de service. Infra automatisée en Terraform.
+          </p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+        </div>
+      </article>
+      <article class="project-item">
+        <span class="project-num">05</span>
+        <div>
+          <h3 class="project-title">SecureCart – Pilier Sécurité AWS Well-Architected</h3>
+          <div class="project-subtitle">VPC · ALB · WAF · RDS · S3 · Chiffrement</div>
+          <div class="project-date">Projet perso</div>
+          <div class="project-tech">
+            <span>AWS</span><span>VPC</span><span>WAF</span><span>ALB</span><span>RDS</span><span>S3</span><span>IAM</span>
+          </div>
+          <p class="project-desc">
+            Refonte sécurisée d’une plateforme e-commerce : VPC avec subnets publics/privés, Bastion Host, ALB, AWS WAF, RDS et S3 avec chiffrement et accès restreint (Security Pillar).
+          </p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+        </div>
+      </article>
+      <article class="project-item">
+        <span class="project-num">06</span>
+        <div>
+          <h3 class="project-title">Pipeline analytique temps réel (Kinesis, Lambda, DynamoDB)</h3>
+          <div class="project-subtitle">Streaming · Serverless · SNS · Athena</div>
+          <div class="project-date">Projet perso</div>
+          <div class="project-tech">
+            <span>AWS</span><span>Kinesis</span><span>Lambda</span><span>DynamoDB</span><span>S3</span><span>Athena</span><span>SNS</span>
+          </div>
+          <p class="project-desc">
+            Pipeline d’analytique en temps réel des données boursières : ingestion via Kinesis Data Streams, traitement et détection d’anomalies avec Lambda, stockage DynamoDB/S3, alertes SNS, requêtes Athena.
+          </p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">Voir le code sur GitHub →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="section-label"><span>[</span> TECH STACK <span>]</span></p>
+    <h2 class="section-title">Compétences</h2>
+    <div class="skills-grid">
+      <div class="skills-cat">
+        <div class="name">CLOUD</div>
+        <div class="tags">
+          <span>AWS</span><span>Azure</span><span>GCP</span>
+        </div>
+      </div>
+      <div class="skills-cat">
+        <div class="name">INFRA & DEVOPS</div>
+        <div class="tags">
+          <span>Terraform</span><span>Docker</span><span>CI/CD</span><span>Git</span><span>Linux</span>
+        </div>
+      </div>
+      <div class="skills-cat">
+        <div class="name">AWS SERVICES</div>
+        <div class="tags">
+          <span>EC2</span><span>Lambda</span><span>S3</span><span>RDS</span><span>VPC</span><span>CloudWatch</span><span>IAM</span>
+        </div>
+      </div>
+      <div class="skills-cat">
+        <div class="name">CERTIFICATIONS</div>
+        <div class="tags">
+          <span>6× AWS</span><span>Azure</span><span>GCP</span><span>Terraform Associate</span>
+        </div>
+      </div>
+    </div>
+    <div class="education-list">
+      <div class="education-item">
+        <div class="education-date">2013 – 2016</div>
+        <div class="education-school">École Nationale d’Ingénieurs de Carthage</div>
+        <div class="education-desc">Diplôme d’ingénieur en Mécatronique – Major de promotion</div>
+      </div>
+      <div class="education-item">
+        <div class="education-date">2011 – 2013</div>
+        <div class="education-school">Institut Préparatoire aux Études d’Ingénieurs (IPEIM)</div>
+        <div class="education-desc">Cycle préparatoire Mathématiques et Physique</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume">
+    <p class="section-label"><span>[</span> CURRICULUM VITAE <span>]</span></p>
+    <h2 class="section-title">Résumé</h2>
+    <div class="resume-card">
+      <div class="resume-preview">
+        <div class="doc-title">Hichem_GOUIA_CV.pdf</div>
+        <div class="doc-meta">Dernière mise à jour · 2025</div>
+        <ul>
+          <li>6× AWS (dont Solutions Architect – Professional), Azure, GCP, Terraform</li>
+          <li>10 ans d’expérience · Siemens (intégration AWS), Ampere, Valeo, Renault</li>
+          <li>Projets : IaC Terraform, CI/CD, serverless, multi-cloud, Well-Architected</li>
+          <li>Stack : AWS · Terraform · Docker · Linux · Kubernetes (CKA)</li>
+        </ul>
+      </div>
+      <a href="CV_Hichem_GOUIA.pdf" class="resume-cta" target="_blank" rel="noopener">Voir / Télécharger le CV ↗</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="section-label"><span>[</span> GET IN TOUCH <span>]</span></p>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <p class="contact-text">
+        Intéressé par mon profil ? Je suis ouvert aux opportunités cloud / DevOps (CDI, freelance).
+      </p>
+      <div class="contact-details">
+        <div>
+          <div class="label">Email</div>
+          <a href="mailto:Hichem_gouia@hotmail.com">Hichem_gouia@hotmail.com</a>
+        </div>
+        <div>
+          <div class="label">Téléphone</div>
+          <a href="tel:+33776758552">07 76 75 85 52</a>
+        </div>
+        <div>
+          <div class="label">Adresse</div>
+          <span>6 Rue Lucien Sampaix, 78210 Saint Cyr L’école, France</span>
+        </div>
+        <div>
+          <div class="label">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/hichem-gouia-960188b2/" target="_blank" rel="noopener">linkedin.com/in/hichem-gouia-960188b2</a>
+        </div>
+        <div>
+          <div class="label">GitHub</div>
+          <a href="https://github.com/hichemgouia" target="_blank" rel="noopener">github.com/hichemgouia</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-social">
+      <a href="https://github.com/hichemgouia" target="_blank" rel="noopener">GITHUB</a>
+      <a href="https://www.linkedin.com/in/hichem-gouia-960188b2/" target="_blank" rel="noopener">LINKEDIN</a>
+      <a href="mailto:Hichem_gouia@hotmail.com">EMAIL</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="name">Hichem Gouia</span> © 2025 · Ingénieur infrastructure cloud AWS · Saint Cyr L’école (78) · Ouvert aux opportunités
+  </footer>
+
+  <script>
+    (function () {
+      var sections = document.querySelectorAll('section[id]');
+      var dots = document.querySelectorAll('.nav-dots a');
+      function updateActive() {
+        var top = window.scrollY + 120;
+        var current = '';
+        sections.forEach(function (s) {
+          var id = s.getAttribute('id');
+          if (s.offsetTop <= top) current = id;
+        });
+        dots.forEach(function (d) {
+          var href = d.getAttribute('href');
+          if (href === '#' + current) d.classList.add('active'); else d.classList.remove('active');
+        });
+      }
+      window.addEventListener('scroll', updateActive);
+      window.addEventListener('load', updateActive);
+    })();
+  </script>
+</body>
+</html>
