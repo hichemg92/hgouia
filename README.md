@@ -40,7 +40,7 @@ Formations complémentaires pour approfondir les sujets cloud et DevOps :
 - **AWS** — Ultimate Solutions Architect Professional 2026 · Solutions Architect Associate 2026 · Developer Associate 2026 (DVA-C02) · CloudOps Engineer Associate (SOA-C03) 2026 · AWS Certified AI Practitioner (AIF-C01)  
 - **Azure** — AZ-104 Microsoft Azure Administrator – Complete Exam Prep  
 - **GCP** — Associate Cloud Engineer – Google Cloud Certification
-- 
+  
 ---
 
 ## 🚀 Ce que je fais
