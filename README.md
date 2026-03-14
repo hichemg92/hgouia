@@ -71,7 +71,7 @@ Quelques projets que j’ai réalisés et qui illustrent mon approche :
 
 - **Portfolio** : [lien vers ton portfolio]  
 - **LinkedIn** : [Hichem Gouia](https://www.linkedin.com/in/hichem-gouia-960188b2/)  
-- **GitHub** : [@hichemgouia]([https://github.com/hichemgouia](https://github.com/hichemg92))
+- **GitHub** : [@hichemgouia](https://github.com/hichemg92))
 
 ---
 
